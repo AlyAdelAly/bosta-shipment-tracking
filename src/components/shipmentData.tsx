@@ -1,13 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, connect } from 'react-redux';
+import { ShipmentState} from '../store/types/shipmentType';
 import moment from 'moment';
 import styles from './shipmentDetails.module.scss';
 import { useTranslation } from "react-i18next";
 import help from '../assets/help.png'
 
-const ShipmentTrackingData = (shipmentData: any, error: any) => {
+const ShipmentTrackingData = (shipmentData: any, language: string) => {
 
+    const error = useSelector((state: ShipmentState) => state.error);
     const { t } = useTranslation();
+
+    console.log(shipmentData);
+
 
     if (error) {
         return <div>Error: {error}</div>;
@@ -70,8 +75,7 @@ const ShipmentTrackingData = (shipmentData: any, error: any) => {
 
 const mapStateToProps = (state: any) => {
     return { 
-        shipmentData: state.shipment?.shipmentData,
-        error: state.error 
+        shipmentData: state.shipment?.shipmentData, 
     }
 };
 
