@@ -1,0 +1,28 @@
+.shipementDetails {
+    display: flex;
+    padding-left: 6rem;
+    &__tracking {
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+
+        &_body {
+            display: flex;
+            flex-basis: 50em;
+
+            ul {
+                li {
+                    word-wrap: break-word;
+                    flex-basis: 10em;
+                }
+            }
+        }
+        
+        &_body {
+            display: flex;
+            flex-direction: column;
+            
+        }
+    }
+    
+}
